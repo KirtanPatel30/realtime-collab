@@ -25,10 +25,9 @@ Robust sync using state vectors
 Frontend-Next.js (App Router),TypeScript,TipTap editor,TailwindCSS
 Realtime Engine-Yjs CRDT for conflict-free editing,Supabase Realtime channels,Presence tracking system,Incremental update broadcasting
 Backend / API-Next.js server routes,Local AI inference via Ollama,Document snapshot persistence,Debounced autosave system
-
 AI Layer-Local Llama3 model via Ollama,Document summarization endpoint,Selected text explanation endpoint,Fully offline processing
 
-⚡ Why this project is interesting
+⚡ Why this project is interesting?
 This project demonstrates:Distributed realtime systems (CRDT sync),Full-stack engineering,Local LLM integration,Realtime presence architecture,Performance-aware autosave + sync design
 Built to explore how AI + collaborative systems can work together in modern productivity tools.
 
