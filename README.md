@@ -1,36 +1,55 @@
-🧠 Realtime AI Collaborative Editor-A Google Docs–style realtime collaboration platform with built-in local AI features for summarization and contextual explanations.
-Designed to simulate modern tools like Notion and Google Docs with integrated offline AI assistance.
+# Realtime Collaboration App
 
-🚀 Features
-✍️ Realtime Collaboration
-Multi-user editing with instant sync
-Conflict-free editing using CRDT (Yjs)
-Presence indicators (see who is online)
-Autosave + persistent storage
+A Google-Docs-style starter: **Supabase Auth + Workspaces + Documents + Realtime editing (Yjs) + Autosave + Presence (who's online)**.
 
-🤖 AI-Powered Productivity (Local + Free)
-✨ AI document summarization
-🧠 Explain selected text
-Runs fully offline using Ollama + Llama3
-No external API cost or data sharing
-Privacy-friendly local inference
+## Tech
+- Next.js (App Router) + TypeScript + Tailwind
+- Supabase: Auth, Postgres, Realtime (broadcast + presence)
+- TipTap editor + Yjs CRDT
 
-💾 Persistence & Sync
-Autosaves every few seconds
-Stored in Supabase database
-Snapshot recovery on reload
-Robust sync using state vectors
+## Setup
 
-🧠 Architecture
-Frontend-Next.js (App Router),TypeScript,TipTap editor,TailwindCSS
-Realtime Engine-Yjs CRDT for conflict-free editing,Supabase Realtime channels,Presence tracking system,Incremental update broadcasting
-Backend / API-Next.js server routes,Local AI inference via Ollama,Document snapshot persistence,Debounced autosave system
-AI Layer-Local Llama3 model via Ollama,Document summarization endpoint,Selected text explanation endpoint,Fully offline processing
+### 1) Install
+```bash
+npm install
+```
 
-⚡ Why this project is interesting?
-This project demonstrates:Distributed realtime systems (CRDT sync),Full-stack engineering,Local LLM integration,Realtime presence architecture,Performance-aware autosave + sync design
-Built to explore how AI + collaborative systems can work together in modern productivity tools.
+### 2) Env vars
+Copy `.env.example` to `.env.local` and fill values from Supabase:
+- Supabase Dashboard → **Project Settings → API**
 
-🖼️ Screenshots
-<img width="726" height="597" alt="image" src="https://github.com/user-attachments/assets/18b1d6b8-6e94-4524-8dd6-134d6584381f" />
-<img width="895" height="419" alt="image" src="https://github.com/user-attachments/assets/ef1932a1-e157-449e-bf65-6b36bd35c0c2" />
+```bash
+cp .env.example .env.local
+```
+
+### 3) Database schema + RLS
+In Supabase Dashboard → **SQL Editor**, run:
+- `supabase/schema.sql`
+
+### 4) Enable Realtime
+Supabase Dashboard → **Realtime**:
+- Ensure Realtime is enabled for your project.
+- Presence is used on the `doc:<docId>` channel.
+
+### 5) Run
+```bash
+npm run dev
+```
+Open http://localhost:3000
+
+## Features (current)
+- Email/password sign in + sign up
+- Create workspaces + documents
+- Realtime collaborative editing (Yjs updates over Supabase Realtime broadcast)
+- Autosave document snapshots to Postgres (`doc_content`)
+- Presence: show **Online count** + **who is online**
+
+## Useful scripts
+```bash
+npm run lint
+npm run typecheck
+```
+
+## Notes
+- `.env.local` is intentionally **not committed** (keys stay local).
+- This step keeps permissions simple (owner/creator only). Next step is to make access **workspace-member based**.
