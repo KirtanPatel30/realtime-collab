@@ -35,5 +35,5 @@ This project demonstrates:Distributed realtime systems (CRDT sync),Full-stack en
 Built to explore how AI + collaborative systems can work together in modern productivity tools.
 
 🖼️ Screenshots 
-  <img width="726" height="597" alt="image" src="https://github.com/user-attachments/assets/18b1d6b8-6e94-4524-8dd6-134d6584381f" />
+<img width="726" height="597" alt="image" src="https://github.com/user-attachments/assets/18b1d6b8-6e94-4524-8dd6-134d6584381f" />
 <img width="895" height="419" alt="image" src="https://github.com/user-attachments/assets/ef1932a1-e157-449e-bf65-6b36bd35c0c2" />
